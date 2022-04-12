@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hello/next_page.dart';
+import 'dart:async';
+import 'package:intl/intl.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -11,17 +13,19 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Timer',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Timer'),
+
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
+
 
 
   final String title;
@@ -31,38 +35,43 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  int _counter = 0;
 
   void _incrementCounter() {
     setState(() {
+      _counter++;
     });
   }
 
-
   @override
   Widget build(BuildContext context) {
+    final ButtonStyle style =
+    ElevatedButton.styleFrom(
+      textStyle: const TextStyle(fontSize: 20),
+      primary: Colors.blue,
+      elevation: 10,
+    );
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Text(
-              'Hello World!!',
-              style: TextStyle(
-                fontSize: 20,
-                color: Colors.green,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.underline,
-              ),
-              ),
-            Text("How's it going?"),
+            ElevatedButton(
+              style: style,
+              onPressed: () {},
+              child: const Text('Start'),
+            ),
+            ElevatedButton(
+              style: style,
+              onPressed: () {},
+              child: const Text('Stop'),
+            ),
           ],
         ),
-    ),
+      ),
     );
   }
 }
+
