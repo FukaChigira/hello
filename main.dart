@@ -31,17 +31,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-  String _type = "偶数";
+
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
-      if (_counter % 2 == 0) {
-        _type = "偶数";
-      } else {
-        _type = "奇数";
-      }
     });
   }
 
